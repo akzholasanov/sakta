@@ -1,16 +1,16 @@
 ### Pull Request Template
 
-- **Task Number:** [Number]
-- **Description:**
+### Task Number: [Number]
+### Description
 
 
-- **Changes:**
-  -
+### Changes
+- 
 
-**Checklist:**
+### Checklist:
 - [ ] Tested locally
 - [ ] No errors in console or build
 - [ ] New dependencies added, if any:
 - [ ] Updated documentation, if necessary
 
-- **Screenshots:**
+### Screenshots/videos
