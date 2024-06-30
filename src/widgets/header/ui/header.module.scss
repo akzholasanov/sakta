@@ -1,0 +1,18 @@
+@use 'src/app/styles/breakpoints';
+
+header {
+    width: 50%;
+  height: 3.5rem;
+  position: fixed;
+  inset: 0;
+  top: 1rem;
+  margin: 0 auto;
+  display: flex;
+  border-radius: 9999px;
+  font-weight: 500;
+  background-color: var(--white);
+  color: #fff;
+  gap: 1rem;
+  font-family: 'monospace';
+  overflow: hidden;
+}
