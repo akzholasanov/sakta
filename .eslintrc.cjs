@@ -66,7 +66,7 @@ module.exports = {
     "@typescript-eslint/no-misused-new": "error",
     "@typescript-eslint/no-non-null-assertion": "error",
     "@typescript-eslint/no-unused-vars": [
-      "off",
+      "error",
       {
         vars: "all",
         args: "after-used",
