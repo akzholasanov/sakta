@@ -6,6 +6,7 @@ module.exports = {
     "plugin:react/recommended",
     "plugin:@typescript-eslint/recommended",
     "plugin:prettier/recommended",
+    "plugin:react/jsx-runtime",
   ],
   ignorePatterns: ["dist", ".eslintrc.cjs", "vite.config.ts"],
   parser: "@typescript-eslint/parser",
@@ -31,8 +32,8 @@ module.exports = {
     "react/function-component-definition": "off",
     "react/no-array-index-key": "off",
     "react/react-in-jsx-scope": "off",
-    "react/jsx-filename-extension": ["error", { extensions: [".tsx", ".jsx"] }],
     "react/jsx-uses-react": "off",
+    "react/jsx-filename-extension": ["error", { extensions: [".tsx", ".jsx"] }],
     "react/require-default-props": "off",
     "simple-import-sort/imports": "error",
     "simple-import-sort/exports": "error",
@@ -65,7 +66,7 @@ module.exports = {
     "@typescript-eslint/no-misused-new": "error",
     "@typescript-eslint/no-non-null-assertion": "error",
     "@typescript-eslint/no-unused-vars": [
-      "error",
+      "off",
       {
         vars: "all",
         args: "after-used",

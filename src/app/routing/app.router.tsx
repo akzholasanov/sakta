@@ -1,3 +1,4 @@
+import React from 'react';
 import {
   createHashRouter,
   createRoutesFromElements,
@@ -8,18 +9,19 @@ import {
 import clsx from 'clsx';
 import { MainLayout } from 'app/layout';
 import { Home } from 'pages/home';
+import { useTheme } from 'entities';
+
 
 import '../styles/index.scss';
-import { useTheme } from 'entities';
 
 export const AppRouter = () => {
   const { theme } = useTheme();
 
   const routers = createRoutesFromElements(
     <Route
-      path='/'
+      path="/"
       element={<MainLayout />}
-      handle={{ crumb: <Link to='/'>Home</Link> }}
+      handle={{ crumb: <Link to="/">Home</Link> }}
     >
       <Route index element={<Home />} />
     </Route>,
