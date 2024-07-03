@@ -1,8 +1,14 @@
 import { useState } from 'react';
-import styles from './header.module.scss';
+import clsx from 'clsx';
 import { motion, useMotionValueEvent, useScroll } from 'framer-motion';
 import { useLocation } from 'react-router-dom';
-import clsx from 'clsx';
+import styles from './header.module.scss';
+
+const links = [
+  { title: 'home', path: '/' },
+  { title: 'about us', path: '/about' },
+  { title: 'join', path: '/join' },
+];
 
 export const Header = () => {
   const [showNav, setShowNav] = useState<boolean>(false);
@@ -19,13 +25,6 @@ export const Header = () => {
       setHidden(false);
     }
   });
-
-  const links = [
-    { title: 'home', path: '/' },
-    { title: 'about us', path: '/about' },
-    { title: 'join', path: '/join' },
-  ];
-  console.log(location)
 
   return (
     <motion.header
@@ -63,20 +62,25 @@ export const Header = () => {
             hidden: {
               opacity: 0,
               y: -20,
-              transition: { duration: 0.6, delay: 0  },
+              transition: { duration: 0.6, delay: 0 },
             },
             visible: {
               opacity: 1,
               y: 0,
-              transition: { duration: 0.6, delay: 0  },
+              transition: { duration: 0.6, delay: 0 },
             },
           }}
         >
           {links.map(({ title, path }) => (
             <motion.li
               key={path}
-              className={clsx(styles.link, { [styles.link_active]: location.pathname === path })}
-              style={{ display: hidden && location.pathname !== path ? 'none' : 'block' }}
+              className={clsx(styles.link, {
+                [styles.link_active]: location.pathname === path,
+              })}
+              style={{
+                display:
+                  hidden && location.pathname !== path ? 'none' : 'block',
+              }}
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 2, y: 0 }}
               transition={{ duration: 1.5 }}
