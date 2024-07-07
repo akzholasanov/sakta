@@ -1,0 +1,28 @@
+.home_picture {
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background: #304352;
+  background: -webkit-linear-gradient(to top, #d7d2cc, #304352);
+  background: linear-gradient(to top, #d7d2cc, #304352);
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  text-align: center;
+  padding: 20px;
+  transition: transform 0.5s ease;
+}
+
+.home_picture h1 {
+  margin-bottom: 10px;
+  font-size: 2em;
+}
+
+.home_picture p {
+  font-size: 1.2em;
+}
