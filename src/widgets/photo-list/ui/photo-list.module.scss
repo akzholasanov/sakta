@@ -1,0 +1,8 @@
+.photo_list {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  justify-items: stretch;
+  grid-auto-rows: 10px;
+  gap: 15px;
+}

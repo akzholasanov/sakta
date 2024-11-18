@@ -1,8 +1,9 @@
 import axios from 'axios';
+import { API_KEY } from 'shared/consts';
 
 export const api = axios.create({
   headers: {
-    Authorization: 'UDbOaBQmFJvumaeprJXtGF9BXsynxj6b7xGTHnknJNTAZ5aBfYRL8gDX',
+    Authorization: API_KEY,
     Accept: 'application/json',
   },
 });
