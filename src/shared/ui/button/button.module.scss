@@ -1,0 +1,55 @@
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.6rem 1.2rem;
+  font-size: 1rem;
+  font-weight: 500;
+  border: none;
+  border-radius: 0.25rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+
+  // Неактивное состояние
+  background-color: transparent;
+  color: rgba(13, 13, 13, 0.5); // Текст серый с прозрачностью
+  &:hover:not(:disabled) {
+    color: rgba(13, 13, 13, 1); // Текст становится чёрным
+  }
+
+  // Активное состояние
+  &:active:not(:disabled) {
+    background-color: rgba(232, 231, 229, 1); // Серый фон
+    color: rgba(13, 13, 13, 1); // Чёрный текст
+  }
+
+  // Заблокированная кнопка
+  &.disabled {
+    cursor: not-allowed;
+    color: rgba(13, 13, 13, 0.3); // Ещё более светлый текст
+    background-color: transparent;
+  }
+
+  // Состояние загрузки
+  &.loading {
+    position: relative;
+
+    .spinner {
+      width: 1rem;
+      height: 1rem;
+      border: 2px solid rgba(13, 13, 13, 0.5); // Прозрачный серый
+      border-top: 2px solid transparent;
+      border-radius: 50%;
+      animation: spin 0.6s linear infinite;
+    }
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

@@ -6,10 +6,9 @@ export default defineConfig({
   plugins: [
     react(),
     svgr({
-      include: '**/*.svg?react',
+      include: '**/*.svg',
     }),
   ],
-  base: '/sakta/',
   resolve: {
     alias: {
       app: '/src/app',
@@ -21,9 +20,6 @@ export default defineConfig({
     },
   },
   define: {
-    'process.env': process.env,
-  },
-  server: {
-    port: 3000,
+    'process.env': {},
   },
 });

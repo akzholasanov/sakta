@@ -1,1 +1,2 @@
-export { PEXEL_API_URL } from './pexel-api-url.const';
+export { API_URL, baseUrl } from './url.const';
+export { API_KEY } from './key.const';
