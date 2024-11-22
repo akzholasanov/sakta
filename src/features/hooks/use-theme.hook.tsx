@@ -1,5 +1,5 @@
 import { useCallback, useContext } from 'react';
-import { THEME_KEY, Theme, ThemeContext } from 'entities/config/theme.context';
+import { THEME_KEY, Theme, ThemeContext } from 'features/config/theme.context';
 
 interface ITheme {
   readonly theme: Theme;

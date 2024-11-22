@@ -1,5 +1,5 @@
 import { useState, useMemo, FC } from 'react';
-import { THEME_KEY, Theme, ThemeContext } from 'entities/config/theme.context';
+import { THEME_KEY, Theme, ThemeContext } from 'features/config/theme.context';
 
 interface ThemeProviderProps {
   children: React.ReactNode;
