@@ -1,47 +1,27 @@
-@use 'src/app/styles/breakpoints';
-
-header {
-  width: 50%;
-  height: 3.5rem;
-  position: fixed;
-  inset: 0;
-  top: 1rem;
-  margin: 0 auto;
+.header {
+  width: 100%;
   display: flex;
-  border-radius: 9999px;
-  font-weight: 500;
-  background-color: var(--white);
-  color: #fff;
-  gap: 1rem;
-  overflow: hidden;
+  align-items: center;
+  justify-content: space-between;
 
-  .header_nav {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-family: 'Inter', sans-serif;
-
-    ul {
+  &_logo {
+    span {
       width: 100%;
-      display: flex;
-      justify-content: space-evenly;
-      gap: 20px;
-      list-style-type: none;
-      padding: 0;
-      margin: 0;
-
-      .link,
-      .link_active {
-        font-size: 24px;
-        font-weight: 500;
-        cursor: pointer;
-        color: #fff !important;
-      }
-
-      .link_active {
-        display: flex;
-      }
+      height: 100%;
+      font-family: 'Anton', sans-serif;
+      font-size: 40px;
+      font-weight: 400;
+      font-style: normal;
+      color: black;
     }
+  }
+
+  &_search_bar {
+  }
+
+  &_auth {
+    display: flex;
+    align-items: center;
+    gap: 10px;
   }
 }

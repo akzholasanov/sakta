@@ -1,0 +1,19 @@
+.tab {
+    cursor: pointer;
+    padding: 16px 18px;
+    border-radius: 12px;
+    transition: all 0.2s ease;
+    color: rgba(13, 13, 13, 0.5);
+    font-size: 16px;
+    font-weight: 500;
+    font-family: Favorit, ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    border-radius: 9999px;
+
+    &:hover {
+        color: rgba(13, 13, 13, 1);
+    }
+    &.active {
+        color: rgba(13, 13, 13, 1);
+        background-color: rgba(232, 231, 229, 1);
+    }
+}

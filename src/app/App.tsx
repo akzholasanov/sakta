@@ -1,12 +1,10 @@
-import { AppRouter} from './routing';
+import { AppRouter } from './routers';
 import { Providers } from './providers';
 
-function App() {
+export const App = () => {
   return (
     <Providers>
       <AppRouter />
     </Providers>
   );
-}
-
-export default App;
+};

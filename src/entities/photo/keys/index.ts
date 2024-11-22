@@ -1,0 +1,1 @@
+export { PHOTOS } from './keys';
