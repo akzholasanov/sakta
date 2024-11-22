@@ -1,10 +1,10 @@
 import { api } from 'shared/api';
 import { endpoints } from './endpoints';
-import { PhotoResponse } from 'shared/types';
+import { CollectionResponse } from 'shared/types';
 
 export const CollectionsApi = {
-  getPhotos: async (): Promise<PhotoResponse> => {
-    const { data } = await api.get<PhotoResponse>(endpoints.getCollections());
+  getCollections: async (): Promise<CollectionResponse> => {
+    const { data } = await api.get<CollectionResponse>(endpoints.getCollections());
     return data;
   },
 };

@@ -15,7 +15,7 @@ export const PhotoCard = ({ photoData }: PhotoCardProps) => {
       style={{ '--card-span': span } as React.CSSProperties}
     >
       <div className={styles.card_image}>
-        <img src={photoData.src.original} alt={photoData.alt} loading='lazy' />
+        <img src={photoData.src.medium} alt={photoData.alt} loading='lazy' />
       </div>
     </div>
   );

@@ -1,5 +1,7 @@
 import React from 'react';
 import styles from './header.module.scss';
+import { UserPanel } from 'widgets/user-panel';
+import { SearchBar } from 'shared/ui/search-bar';
 
 export const Header = () => {
   return (
@@ -8,11 +10,10 @@ export const Header = () => {
         <span>SAKTA</span>
       </div>
       <div className={styles.header_search_bar}>
-        <input type='text' placeholder='Search'/>
+        <SearchBar />
       </div>
       <div className={styles.header_auth}>
-        <button>Sign in</button>
-        <button>Log in</button>
+        <UserPanel />
       </div>
     </header>
   );
