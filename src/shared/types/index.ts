@@ -6,3 +6,4 @@ export type {
   VideoResponse,
   VideoUser,
 } from './video.type';
+export type { CollectionType, CollectionResponse } from './collections.type';
