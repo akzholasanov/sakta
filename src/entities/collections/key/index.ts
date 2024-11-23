@@ -1,1 +1,1 @@
-export { COLLECTIONS } from './keys';
+export { COLLECTIONS, COLLECTION_DETAIL } from './keys';

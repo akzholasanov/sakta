@@ -1,7 +1,6 @@
-import React from 'react';
-import styles from './header.module.scss';
 import { UserPanel } from 'widgets/user-panel';
 import { SearchBar } from 'shared/ui/search-bar';
+import styles from './header.module.scss';
 
 export const Header = () => {
   return (
