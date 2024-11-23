@@ -1,26 +1,35 @@
-import React from 'react';
-import styles from './home-page.module.scss';
-import { useGetPhotos } from 'entities/photo/queries';
-import { PhotoList } from 'widgets/photo-list';
-// import { useGetVideos } from 'entities/video/queries';
+import { useCallback, useState } from 'react';
 import { Tabs } from 'widgets/tabs';
+import { PhotoList } from 'widgets/photo-list';
+import { useGetPhotos } from 'entities/photo/queries';
+import { CollectionList } from 'widgets/collection-list';
 import { useGetCollections } from 'entities/collections/queries';
+// import { useGetVideos } from 'entities/video/queries';
 // import { Slider } from 'shared/ui/slider';
+import styles from './home-page.module.scss';
 
 export const HomePage = () => {
   const { data } = useGetPhotos();
   const { data: collections } = useGetCollections();
   // const { data: videos } = useGetVideos();
 
-  console.log(collections);
+  const [activeTab, setActiveTab] = useState('for-you');
+
+  const handleChangeTab = useCallback((tabId: string) => {
+    setActiveTab(tabId);
+  }, []);
 
   return (
     <section className={styles.home}>
       {/* <Slider videos={videos?.videos} /> */}
       <div className={styles.tabs}>
-        <Tabs />
+        <Tabs activeTab={activeTab} onChangeTab={handleChangeTab} />
       </div>
-      <PhotoList photos={data.photos} />
+      {activeTab === 'for-you' ? (
+        <PhotoList photos={data.photos} />
+      ) : (
+        <CollectionList collections={collections.collections} />
+      )}
     </section>
   );
 };

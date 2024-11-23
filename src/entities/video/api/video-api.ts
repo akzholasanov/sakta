@@ -1,6 +1,6 @@
 import { api } from 'shared/api';
-import { endpoints } from './endpoints';
 import { VideoResponse } from 'shared/types';
+import { endpoints } from './endpoints';
 
 export const VideoApi = {
   getVideo: async (): Promise<VideoResponse> => {

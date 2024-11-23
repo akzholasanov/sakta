@@ -18,6 +18,8 @@ module.exports = {
   },
   plugins: ["jsdoc", "@typescript-eslint", "prettier", "simple-import-sort"],
   rules: {
+    '@typescript-eslint/no-unused-expressions': ['error', { allowShortCircuit: true, allowTernary: true }],
+    'prettier/prettier': 'error',
     "import/prefer-default-export": "off",
     "import/extensions": [
       "error",

@@ -30,7 +30,7 @@ export const Button: React.FC<ButtonProps> = ({
       {...rest}
     >
       {isLoading ? (
-        <span className={styles.spinner} aria-hidden='true' />
+        <span className={styles.spinner} aria-hidden="true" />
       ) : (
         label
       )}

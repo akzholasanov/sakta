@@ -1,7 +1,7 @@
 import { useQuery } from '@tanstack/react-query';
+import { PhotoResponse } from 'shared/types/photo-card.type';
 import { PHOTOS } from '../keys/keys';
 import { PhotoApi } from '../api';
-import { PhotoResponse } from 'shared/types/photo-card.type';
 
 const DEFAULT_PHOTO_RESPONSE: PhotoResponse = {
   photos: [],
