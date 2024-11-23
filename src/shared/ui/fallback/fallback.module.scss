@@ -1,25 +1,25 @@
 .fallback {
-    width: 100%;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 20px;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
 
-    &_code {
-        font-size: 100px;
-        font-weight: 700;
-    }
+  &_code {
+    font-size: 100px;
+    font-weight: 700;
+  }
 
-    &_text {
-        font-size: 40px;
-        font-weight: 700;
-    }
+  &_text {
+    font-size: 40px;
+    font-weight: 700;
+  }
 
-    &_btn {
-        font-size: 20px;
-        font-weight: 700;
-        cursor: pointer;
-    }
+  &_btn {
+    font-size: 20px;
+    font-weight: 700;
+    cursor: pointer;
+  }
 }

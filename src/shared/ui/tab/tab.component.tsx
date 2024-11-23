@@ -1,6 +1,5 @@
-import React from 'react';
-import styles from './tab.module.scss';
 import clsx from 'clsx';
+import styles from './tab.module.scss';
 
 interface TabProps {
   label: string;

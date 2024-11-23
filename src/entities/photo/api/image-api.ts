@@ -1,6 +1,6 @@
 import { api } from 'shared/api';
-import { endpoints } from './endpoints';
 import { PhotoResponse } from 'shared/types';
+import { endpoints } from './endpoints';
 
 export const PhotoApi = {
   getPhotos: async (): Promise<PhotoResponse> => {

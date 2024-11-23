@@ -1,4 +1,3 @@
-import React from 'react';
 import { PhotoCardType } from 'shared/types';
 import { PhotoCard } from 'shared/ui/photo-card';
 import styles from './photo-list.module.scss';

@@ -1,4 +1,3 @@
-import React from 'react';
 import { Popover, Avatar } from 'antd';
 import styles from './user-panel.module.scss';
 
@@ -30,11 +29,11 @@ export const UserPanel = () => {
 
   return (
     <Popover
-      trigger='click'
+      trigger="click"
       content={content}
-      placement='bottomRight'
+      placement="bottomRight"
       rootClassName={styles.custom_popover}
-      >
+    >
       <button className={styles.user_panel_btn}>
         <span>Akzhol</span>
         <Avatar size={40}>A</Avatar>
