@@ -1,14 +1,31 @@
 import { Input } from 'antd';
 import styles from './search-bar.module.scss';
 
-export const SearchBar = () => {
+interface SearchBarProps {
+  search: string;
+  onFocus: () => void;
+  onSearch: (value: string) => void;
+  onKeyPress: (event: React.KeyboardEvent<HTMLInputElement>) => void;
+}
+
+export const SearchBar = ({
+  onSearch,
+  search,
+  onKeyPress,
+  onFocus,
+}: SearchBarProps) => {
   return (
     <div className={styles.search_bar}>
       <Input
-        type="text"
         name="text"
-        placeholder="Search 'UIverse'"
+        type="text"
+        value={search}
+        autoComplete="off"
+        placeholder="Search 'Sakta'"
         className={styles.search_bar_input}
+        onFocus={onFocus}
+        onKeyDown={onKeyPress}
+        onChange={e => onSearch(e.target.value)}
       />
     </div>
   );
