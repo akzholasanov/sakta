@@ -15,12 +15,11 @@
     gap: 24px;
     border-bottom: 1px solid #e0e0e0;
 
+    -ms-overflow-style: none;
+    scrollbar-width: none;
     ::-webkit-scrollbar {
       display: none;
     }
-
-    -ms-overflow-style: none;
-    scrollbar-width: none;
 
     .collection_item {
       width: 100%;
