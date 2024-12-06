@@ -81,3 +81,28 @@
     }
   }
 }
+
+@media (max-width: 1024px) {
+  .detail_page {
+    padding: 20px 0;
+
+    .close {
+      top: 20px;
+    }
+
+    .detail_page_info {
+      flex-direction: column;
+
+      .detail_page_image {
+        padding: 0 40px;
+        height: 50vh;
+      }
+
+      .detail_page_aside {
+        width: 100%;
+        border: none;
+        padding: 0 40px;
+      }
+    }
+  }
+}

@@ -3,19 +3,22 @@ import { Link, useNavigate } from 'react-router-dom';
 import { Search } from 'shared/ui/search-bar';
 import { UserPanel } from 'widgets/user-panel';
 import styles from './header.module.scss';
+import { useDeviceType } from 'shared/hooks';
 
 export const Header = () => {
-  const [search, setSearch] = useState('');
   const navigate = useNavigate();
+  const { isMobile } = useDeviceType();
 
-  const handleKeyPress = useCallback(
-    (event: React.KeyboardEvent<HTMLInputElement>) => {
-      if (event.key === 'Enter' && search.trim()) {
-        navigate(`/search/${encodeURIComponent(search.trim())}`);
-      }
-    },
-    [navigate, search],
-  );
+  const [search, setSearch] = useState('');
+  const [color, setColor] = useState('');
+
+  const handleKeyPress = useCallback((event: React.KeyboardEvent<HTMLInputElement>) => {
+    if (event.key === 'Enter' && search.trim()) {
+      const basePath = `/search/${encodeURIComponent(search.trim())}`;
+      const queryString = color ? `?color=${encodeURIComponent(color)}` : '';
+      navigate(`${basePath}${queryString}`);
+    }
+  }, [navigate, search, color]);
 
   const handleSearchChange = useCallback((value: string) => {
     setSearch(value);
@@ -23,8 +26,10 @@ export const Header = () => {
 
   const handleSelectTag = useCallback((tag: string) => {
     setSearch(tag);
-    navigate(`/search/${encodeURIComponent(tag)}`);
-  }, []);
+    const basePath = `/search/${encodeURIComponent(tag)}`;
+    const queryString = color ? `?color=${encodeURIComponent(color)}` : '';
+    navigate(`${basePath}${queryString}`);
+  }, [navigate, color]);
 
   return (
     <header className={styles.header}>
@@ -33,14 +38,18 @@ export const Header = () => {
           <span>SAKTA</span>
         </Link>
       </div>
-      <div className={styles.header_search_bar}>
-        <Search
-          search={search}
-          onSearch={handleSearchChange}
-          onSelectTag={handleSelectTag}
-          onKeyPress={handleKeyPress}
-        />
-      </div>
+      {!isMobile && (
+        <div className={styles.header_search_bar}>
+          <Search
+            search={search}
+            onSearch={handleSearchChange}
+            onSelectTag={handleSelectTag}
+            onKeyPress={handleKeyPress}
+            selectedColor={color}
+            setColor={setColor}
+          />
+        </div>
+      )}
       <div className={styles.header_auth}>
         <UserPanel />
       </div>

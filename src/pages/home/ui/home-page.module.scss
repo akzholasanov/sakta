@@ -9,3 +9,9 @@
   overflow: hidden;
   margin-top: 40px;
 }
+
+@media (max-width: 768px) {
+  .home {
+    gap: 40px;
+  }
+}

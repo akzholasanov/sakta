@@ -62,3 +62,23 @@
     }
   }
 }
+
+@media screen and (max-width: 1024px) {
+  .collection_list {
+    .collection_detail {
+      .collection_media {
+        grid-template-columns: repeat(auto-fill, minmax(332px, 1fr));
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .collection_list {
+    .collection_detail {
+      .collection_media {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+  }
+}

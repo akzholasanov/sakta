@@ -7,16 +7,15 @@
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "prepare": "husky install",
+    "test": "echo \"No tests specified\" && exit 0"
   },
   "dependencies": {
     "@tanstack/react-query": "^5.60.5",
-    "@typescript-eslint/eslint-plugin": "^8.15.0",
-    "@typescript-eslint/parser": "^8.15.0",
     "antd": "^5.22.1",
     "axios": "^1.7.7",
     "clsx": "^2.1.1",
-    "eslint": "^9.15.0",
     "pexels": "^1.4.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
@@ -30,16 +29,30 @@
     "@types/node": "^22.9.0",
     "@types/react": "^18.3.12",
     "@types/react-dom": "^18.3.1",
+    "@typescript-eslint/eslint-plugin": "^8.17.0",
+    "@typescript-eslint/parser": "^8.17.0",
     "@vitejs/plugin-react": "^4.3.3",
+    "eslint": "^9.16.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-prettier": "^5.2.1",
     "eslint-plugin-react-hooks": "^5.0.0",
     "eslint-plugin-react-refresh": "^0.4.14",
     "globals": "^15.11.0",
-    "prettier": "^3.3.3",
+    "husky": "^8.0.0",
+    "lint-staged": "^15.2.10",
+    "prettier": "^3.4.2",
     "typescript": "~5.6.2",
     "typescript-eslint": "^8.11.0",
     "vite": "^5.4.10",
     "vite-plugin-svgr": "^4.3.0"
+  },
+  "lint-staged": {
+    "*.{ts,tsx,js,json}": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "*.ts": [
+      "tsc --noEmit"
+    ]
   }
 }
