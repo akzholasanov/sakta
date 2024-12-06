@@ -1,23 +1,24 @@
 import { useCallback, useState } from 'react';
 import { Tabs } from 'widgets/tabs';
+import { Loader } from 'shared/ui/loader';
 import { PhotoList } from 'widgets/photo-list';
 import { useGetPhotos } from 'entities/photo/queries';
 import { CollectionList } from 'widgets/collection-list';
 import { useGetCollections } from 'entities/collections/queries';
-// import { useGetVideos } from 'entities/video/queries';
 // import { Slider } from 'shared/ui/slider';
 import styles from './home-page.module.scss';
 
 export const HomePage = () => {
-  const { data } = useGetPhotos();
-  const { data: collections } = useGetCollections();
-  // const { data: videos } = useGetVideos();
+  const { data, loading } = useGetPhotos();
+  const { data: collections, loading: loadingCollections } = useGetCollections();
 
   const [activeTab, setActiveTab] = useState('for-you');
 
   const handleChangeTab = useCallback((tabId: string) => {
     setActiveTab(tabId);
   }, []);
+
+  if (loading || loadingCollections) return <Loader />;
 
   return (
     <section className={styles.home}>

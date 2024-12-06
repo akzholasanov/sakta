@@ -8,7 +8,7 @@ interface VideoCardProps {
 }
 
 export const VideoCard = ({ videoData }: VideoCardProps) => {
-  const span = generateGridSpan(20, 40);
+  const span = generateGridSpan(20, 25);
 
   const videoFile = videoData.video_files?.[0];
 

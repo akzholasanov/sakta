@@ -1,8 +1,10 @@
-import { createHashRouter, RouterProvider } from 'react-router-dom';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { MainLayout } from 'app/layout';
 import { HomePage } from 'pages/home';
+import { SearchPage } from 'pages/search';
+import { DetailPage } from 'pages/detail-page';
 
-const routers = createHashRouter([
+const routers = createBrowserRouter([
   {
     path: '/',
     element: <MainLayout />,
@@ -10,6 +12,14 @@ const routers = createHashRouter([
       {
         index: true,
         element: <HomePage />,
+      },
+      {
+        path: ':type/:id',
+        element: <DetailPage />,
+      },
+      {
+        path: 'search/:query',
+        element: <SearchPage />,
       },
     ],
   },
