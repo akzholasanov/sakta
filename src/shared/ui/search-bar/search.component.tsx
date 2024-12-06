@@ -4,17 +4,22 @@ import { GoArrowUpRight } from 'react-icons/go';
 import { SearchBar } from './search-bar.component';
 import styles from './search.module.scss';
 import { colors, trendingTags } from './consts';
+import clsx from 'clsx';
 
 interface SearchProps {
   search: string;
+  selectedColor: string;
+  setColor: (color: string) => void;
   onSearch: (value: string) => void;
   onSelectTag: (tag: string) => void;
   onKeyPress: (event: React.KeyboardEvent<HTMLInputElement>) => void;
 }
 
 export const Search = ({
-  onSearch,
   search,
+  selectedColor,
+  setColor,
+  onSearch,
   onKeyPress,
   onSelectTag,
 }: SearchProps) => {
@@ -57,7 +62,11 @@ export const Search = ({
         <p>Colors</p>
         <div className={styles.list}>
           {colors.map(color => (
-            <button key={color} onClick={() => handleSelectTag(color)}>
+            <button
+              key={color}
+              onClick={() => setColor(color)}
+              className={clsx({ [styles.selected_color]: selectedColor === color })}
+            >
               <small style={{ backgroundColor: color }}></small>
               {color}
             </button>

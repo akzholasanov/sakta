@@ -54,7 +54,7 @@
         }
         padding: 0 24px;
 
-        button {
+        button, .selected_color {
           display: flex;
           align-items: center;
           gap: 6px;
@@ -73,6 +73,10 @@
             height: 20px;
             border-radius: 9999px;
           }
+        }
+
+        .selected_color {
+          border: 1px solid #222222;
         }
       }
     }

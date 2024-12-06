@@ -4,13 +4,16 @@ import { useQuery } from '@tanstack/react-query';
 import { PhotoApi } from '../api';
 import { PHOTO_SEARCH } from '../keys/keys';
 
+interface SearchParams {
+  query: string;
+  perPage?: number;
+  page?: number;
+  orientation?: string;
+  color?: string;
+}
+
 export const useGetSearchPhotos = () => {
-  const [params, setParams] = useState({
-    query: '',
-    perPage: 10,
-    page: 1,
-    orientation: '',
-  });
+  const [params, setParams] = useState<SearchParams>({ query: '' });
 
   const {
     data = {} as PhotoResponse,
@@ -22,17 +25,9 @@ export const useGetSearchPhotos = () => {
     enabled: !!params.query,
   });
 
-  const searchPhoto = useCallback(
-    (
-      query: string,
-      perPage: number = 10,
-      page: number = 1,
-      orientation: string = '',
-    ) => {
-      setParams({ query, perPage, page, orientation });
-    },
-    [],
-  );
+  const searchPhoto = useCallback((query: string, options: Omit<SearchParams, 'query'> = {}) => {
+    setParams({ query, ...options });
+  }, []);
 
   return { data, loading, error, searchPhoto };
 };
