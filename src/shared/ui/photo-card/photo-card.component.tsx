@@ -9,7 +9,7 @@ interface PhotoCardProps {
 }
 
 export const PhotoCard = ({ photoData }: PhotoCardProps) => {
-  const span = generateGridSpan(10, 25);
+  const span = generateGridSpan(10, 20);
   const navigate = useNavigate();
 
   const handleNavigateToDetail = () => {

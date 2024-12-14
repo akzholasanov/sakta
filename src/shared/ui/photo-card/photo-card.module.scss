@@ -2,6 +2,8 @@
   grid-row-end: span var(--card-span);
   cursor: pointer;
   position: relative;
+  max-height: 700px;
+
 
   &_image {
     width: 100%;

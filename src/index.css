@@ -15,6 +15,10 @@ body,
 html,
 #root {
   background-color: #f5f4f2;
+
+  ::-webkit-scrollbar {
+    display: none;
+  }
 }
 
 ._container {
