@@ -4,8 +4,10 @@ import { endpoints } from './endpoints';
 import { buildQueryParams } from 'shared/helpers';
 
 export const PhotoApi = {
-  getPhotos: async (): Promise<PhotoResponse> => {
-    const { data } = await api.get<PhotoResponse>(endpoints.getPhotos());
+  getPhotos: async ({ page = 1 }: { page: number }): Promise<PhotoResponse> => {
+    const { data } = await api.get<PhotoResponse>(endpoints.getPhotos(), {
+      params: { page },
+    });
     return data;
   },
 
@@ -14,9 +16,13 @@ export const PhotoApi = {
     return data;
   },
 
-  getSearchPhotos: async <T extends Record<string, any>>(params: T): Promise<PhotoResponse> => {
+  getSearchPhotos: async <T extends Record<string, any>>(
+    params: T,
+  ): Promise<PhotoResponse> => {
     const queryString = buildQueryParams(params);
-    const { data } = await api.get<PhotoResponse>(endpoints.getSearchPhotos(queryString));
+    const { data } = await api.get<PhotoResponse>(
+      endpoints.getSearchPhotos(queryString),
+    );
     return data;
   },
 };

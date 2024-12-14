@@ -2,7 +2,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { MainLayout } from 'app/layout';
 import { HomePage } from 'pages/home';
 import { SearchPage } from 'pages/search';
-import { DetailPage } from 'pages/detail-page';
+import { DetailPage } from 'pages/detail';
 
 const routers = createBrowserRouter([
   {

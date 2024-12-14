@@ -32,6 +32,9 @@ export const VideoCard = ({ videoData }: VideoCardProps) => {
           autoPlay
           loop
           muted
+          playsInline
+          disablePictureInPicture
+          controls={false}
           className={styles.video_player}
         />
       </div>
