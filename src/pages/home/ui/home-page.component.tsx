@@ -9,8 +9,11 @@ import { useGetCollections } from 'entities/collections/queries';
 import styles from './home-page.module.scss';
 
 export const HomePage = () => {
-  const { data, loading } = useGetPhotos();
-  const { data: collections, loading: loadingCollections } = useGetCollections();
+  const { data, isLoading, fetchNextPage, hasNextPage, isFetchingNextPage } =
+    useGetPhotos();
+  const { data: collections, loading: loadingCollections } =
+    useGetCollections();
+  const photos = data?.pages.flatMap(page => page.photos) || [];
 
   const [activeTab, setActiveTab] = useState('for-you');
 
@@ -18,7 +21,7 @@ export const HomePage = () => {
     setActiveTab(tabId);
   }, []);
 
-  if (loading || loadingCollections) return <Loader />;
+  if (isLoading || loadingCollections) return <Loader />;
 
   return (
     <section className={styles.home}>
@@ -27,10 +30,16 @@ export const HomePage = () => {
         <Tabs activeTab={activeTab} onChangeTab={handleChangeTab} />
       </div>
       {activeTab === 'for-you' ? (
-        <PhotoList photos={data.photos} />
+        <PhotoList
+          photos={photos}
+          fetchMore={fetchNextPage}
+          hasMore={hasNextPage}
+          isLoading={isLoading || isFetchingNextPage}
+        />
       ) : (
         <CollectionList collections={collections.collections} />
       )}
+      {isLoading ? <Loader /> : null}
     </section>
   );
 };

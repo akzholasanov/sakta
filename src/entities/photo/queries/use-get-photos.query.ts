@@ -1,22 +1,35 @@
-import { useQuery } from '@tanstack/react-query';
+import { useInfiniteQuery } from '@tanstack/react-query';
 import { PhotoResponse } from 'shared/types/photo-card.type';
 import { PHOTOS } from '../keys/keys';
 import { PhotoApi } from '../api';
 
-const DEFAULT_PHOTO_RESPONSE: PhotoResponse = {
-  photos: [],
-  next_page: '',
-  page: 1,
-  per_page: 0,
-  prev_page: '',
-  total_results: 0,
-};
-
 export const useGetPhotos = () => {
-  const { data = DEFAULT_PHOTO_RESPONSE, isFetching: loading, error } = useQuery<PhotoResponse>({
+  const {
+    data,
+    fetchNextPage,
+    hasNextPage,
+    isFetchingNextPage,
+    isLoading,
+    error,
+  } = useInfiniteQuery<PhotoResponse, Error>({
     queryKey: PHOTOS,
-    queryFn: PhotoApi.getPhotos,
+    queryFn: async ({ pageParam = 1 }) =>
+      PhotoApi.getPhotos({ page: pageParam as number }),
+    getNextPageParam: lastPage => {
+      return lastPage.page <
+        Math.ceil(lastPage.total_results / lastPage.per_page)
+        ? lastPage.page + 1
+        : undefined;
+    },
+    initialPageParam: 1,
   });
 
-  return { data, loading, error };
+  return {
+    data,
+    fetchNextPage,
+    hasNextPage,
+    isFetchingNextPage,
+    isLoading,
+    error,
+  };
 };
