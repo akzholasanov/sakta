@@ -1,6 +1,7 @@
 import { PhotoCardType } from 'shared/types';
 import { PhotoCard } from 'shared/ui/photo-card';
 import { useInfiniteListRef } from 'shared/hooks';
+import { Loader } from 'shared/ui/loader';
 import styles from './photo-list.module.scss';
 
 interface PhotoListProps {
@@ -24,6 +25,7 @@ export const PhotoList = ({
         <PhotoCard key={photo.id} photoData={photo} />
       ))}
       <div ref={lastListItemRef} />
+      {isLoading || !photos || photos.length === 0 && <Loader />}
     </div>
   );
 };

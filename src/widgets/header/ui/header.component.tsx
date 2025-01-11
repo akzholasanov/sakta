@@ -1,13 +1,18 @@
 import { useCallback, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { Search } from 'shared/ui/search-bar';
-import { UserPanel } from 'widgets/user-panel';
-import styles from './header.module.scss';
+// import { UserPanel } from 'widgets/user-panel';
+// import { useStore } from 'features/model';
 import { useDeviceType } from 'shared/hooks';
+// import { Login } from 'widgets/login';
+
+import styles from './header.module.scss';
 
 export const Header = () => {
   const navigate = useNavigate();
   const { isMobile } = useDeviceType();
+
+  // const { isAuthenticated, setIsAuthenticated } = useStore();
 
   const [search, setSearch] = useState('');
   const [color, setColor] = useState('');
@@ -51,7 +56,7 @@ export const Header = () => {
         </div>
       )}
       <div className={styles.header_auth}>
-        <UserPanel />
+        {/* {isAuthenticated ? <UserPanel /> : <Login />} */}
       </div>
     </header>
   );

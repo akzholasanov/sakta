@@ -15,12 +15,15 @@
     }
   }
 
-  &_search_bar {
-  }
-
   &_auth {
     display: flex;
     align-items: center;
     gap: 10px;
+  }
+}
+
+@media (max-width: 610px) {
+  .header {
+    margin-top: 20px;
   }
 }
