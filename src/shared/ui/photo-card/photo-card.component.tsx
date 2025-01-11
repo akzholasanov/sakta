@@ -22,7 +22,7 @@ export const PhotoCard = ({ photoData }: PhotoCardProps) => {
       onClick={handleNavigateToDetail}
       style={{ '--card-span': span } as React.CSSProperties}
     >
-      <button className={styles.card_save}>Save</button>
+      {/* <button className={styles.card_save}>Save</button> */}
       <div className={styles.card_image}>
         <img src={photoData.src.medium} alt={photoData.alt} loading="lazy" />
       </div>
