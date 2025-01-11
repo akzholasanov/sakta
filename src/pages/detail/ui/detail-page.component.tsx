@@ -1,7 +1,7 @@
 import { useGetPhoto } from 'entities/photo/queries';
 import { useNavigate, useParams } from 'react-router-dom';
-import { BsInfoCircle } from 'react-icons/bs';
-import { BsThreeDots } from 'react-icons/bs';
+// import { BsInfoCircle } from 'react-icons/bs';
+// import { BsThreeDots } from 'react-icons/bs';
 import { IoCloseOutline } from 'react-icons/io5';
 import { GoPlus } from 'react-icons/go';
 import { Loader } from 'shared/ui/loader';
@@ -29,14 +29,15 @@ export const DetailPage = () => {
         </div>
         <div className={styles.detail_page_aside}>
           <div className={styles.headline}>
-            <div className={styles.settings}>
+            {/* TODO then add settings */}
+            {/* <div className={styles.settings}>
               <button>
                 <BsThreeDots size={24} />
               </button>
               <button>
                 <BsInfoCircle size={24} />
               </button>
-            </div>
+            </div> */}
             <button className={styles.save}>
               <GoPlus size={24} />
             </button>
