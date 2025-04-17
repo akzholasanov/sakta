@@ -17,32 +17,40 @@ export const Header = () => {
   const [search, setSearch] = useState('');
   const [color, setColor] = useState('');
 
-  const handleKeyPress = useCallback((event: React.KeyboardEvent<HTMLInputElement>) => {
-    if (event.key === 'Enter' && search.trim()) {
-      const basePath = `/search/${encodeURIComponent(search.trim())}`;
-      const queryString = color ? `?color=${encodeURIComponent(color)}` : '';
-      navigate(`${basePath}${queryString}`);
-    }
-  }, [navigate, search, color]);
+  const handleKeyPress = useCallback(
+    (event: React.KeyboardEvent<HTMLInputElement>) => {
+      if (event.key === 'Enter' && search.trim()) {
+        const basePath = `/search/${encodeURIComponent(search.trim())}`;
+        const queryString = color ? `?color=${encodeURIComponent(color)}` : '';
+        navigate(`${basePath}${queryString}`);
+      }
+    },
+    [navigate, search, color],
+  );
 
   const handleSearchChange = useCallback((value: string) => {
     setSearch(value);
   }, []);
 
-  const handleSelectTag = useCallback((tag: string) => {
-    setSearch(tag);
-    const basePath = `/search/${encodeURIComponent(tag)}`;
-    const queryString = color ? `?color=${encodeURIComponent(color)}` : '';
-    navigate(`${basePath}${queryString}`);
-  }, [navigate, color]);
+  const handleSelectTag = useCallback(
+    (tag: string) => {
+      setSearch(tag);
+      const basePath = `/search/${encodeURIComponent(tag)}`;
+      const queryString = color ? `?color=${encodeURIComponent(color)}` : '';
+      navigate(`${basePath}${queryString}`);
+    },
+    [navigate, color],
+  );
 
   return (
     <header className={styles.header}>
-      <div className={styles.header_logo}>
-        <Link to="/">
-          <span>SAKTA</span>
-        </Link>
-      </div>
+      {!isMobile && (
+        <div className={styles.header_logo}>
+          <Link to="/">
+            <span>SAKTA</span>
+          </Link>
+        </div>
+      )}
       {!isMobile && (
         <div className={styles.header_search_bar}>
           <Search
