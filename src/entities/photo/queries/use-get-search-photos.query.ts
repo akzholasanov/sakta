@@ -7,10 +7,6 @@ import { PHOTO_SEARCH } from '../keys/keys';
 
 interface SearchParams {
   query: string;
-  perPage?: number;
-  page?: number;
-  orientation?: string;
-  color?: string;
 }
 
 export const useGetSearchPhotos = () => {
@@ -22,7 +18,7 @@ export const useGetSearchPhotos = () => {
     error,
   } = useQuery<PhotoResponse>({
     queryKey: [PHOTO_SEARCH, params],
-    queryFn: () => PhotoApi.getSearchPhotos(params),
+    queryFn: () => PhotoApi.getSearchPhotos({ ...params }),
     enabled: !!params.query,
   });
 
