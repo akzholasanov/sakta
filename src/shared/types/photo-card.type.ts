@@ -1,4 +1,4 @@
-export type PhotoCardType = {
+export interface PhotoCardType {
   alt: string;
   avg_color: string;
   height: number;
@@ -19,13 +19,13 @@ export type PhotoCardType = {
   };
   url: string;
   width: number;
-};
+}
 
-export type PhotoResponse = {
+export interface PhotoResponse {
   next_page: string;
   page: number;
   per_page: number;
   photos: PhotoCardType[];
   prev_page: string;
   total_results: number;
-};
+}

@@ -1,9 +1,10 @@
-import { useEffect, useState } from 'react';
 import clsx from 'clsx';
+import { useGetCollectionDetail } from 'entities/collections/queries';
+import { useEffect, useState } from 'react';
 import { CollectionType } from 'shared/types';
 import { PhotoCard } from 'shared/ui/photo-card';
 import { VideoCard } from 'shared/ui/video-card';
-import { useGetCollectionDetail } from 'entities/collections/queries';
+
 import styles from './collection-list.module.scss';
 
 interface CollectionListProps {

@@ -1,7 +1,8 @@
 import { api } from 'shared/api';
-import { PhotoCardType, PhotoResponse } from 'shared/types';
-import { endpoints } from './endpoints';
 import { buildQueryParams } from 'shared/helpers';
+import { PhotoCardType, PhotoResponse } from 'shared/types';
+
+import { endpoints } from './endpoints';
 
 export const PhotoApi = {
   getPhotos: async ({ page = 1 }: { page: number }): Promise<PhotoResponse> => {
@@ -16,7 +17,7 @@ export const PhotoApi = {
     return data;
   },
 
-  getSearchPhotos: async <T extends Record<string, any>>(
+  getSearchPhotos: async <T extends Record<string, unknown>>(
     params: T,
   ): Promise<PhotoResponse> => {
     const queryString = buildQueryParams(params);

@@ -1,4 +1,5 @@
 import { Tab } from 'shared/ui/tab';
+
 import styles from './tabs.module.scss';
 
 interface TabsProps {

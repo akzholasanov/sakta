@@ -1,10 +1,11 @@
-import { useState, useEffect, useRef } from 'react';
 import { Popover } from 'antd';
-import { GoArrowUpRight } from 'react-icons/go';
-import { SearchBar } from './search-bar.component';
-import styles from './search.module.scss';
-import { colors, trendingTags } from './consts';
 import clsx from 'clsx';
+import { useEffect, useRef, useState } from 'react';
+import { GoArrowUpRight } from 'react-icons/go';
+
+import { colors, trendingTags } from './consts';
+import styles from './search.module.scss';
+import { SearchBar } from './search-bar.component';
 
 interface SearchProps {
   search: string;

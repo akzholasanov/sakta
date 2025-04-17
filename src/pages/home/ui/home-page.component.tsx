@@ -1,9 +1,9 @@
-import { useCallback, useState } from 'react';
-import { Tabs } from 'widgets/tabs';
-import { PhotoList } from 'widgets/photo-list';
-import { useGetPhotos } from 'entities/photo/queries';
-import { CollectionList } from 'widgets/collection-list';
 import { useGetCollections } from 'entities/collections/queries';
+import { useGetPhotos } from 'entities/photo/queries';
+import { useCallback, useState } from 'react';
+import { CollectionList } from 'widgets/collection-list';
+import { PhotoList } from 'widgets/photo-list';
+import { Tabs } from 'widgets/tabs';
 
 import styles from './home-page.module.scss';
 
@@ -14,7 +14,7 @@ export const HomePage = () => {
   const photos =
     data?.pages.flatMap((page, pageIndex) =>
       page.photos.map(photo => ({ ...photo, _pageIndex: pageIndex })),
-    ) || [];
+    ) ?? [];
 
   const [activeTab, setActiveTab] = useState('for-you');
 

@@ -1,7 +1,8 @@
 import { useInfiniteQuery } from '@tanstack/react-query';
 import { PhotoResponse } from 'shared/types/photo-card.type';
-import { PHOTOS } from '../keys/keys';
+
 import { PhotoApi } from '../api';
+import { PHOTOS } from '../keys/keys';
 
 export const useGetPhotos = () => {
   const {

@@ -5,7 +5,7 @@ export enum Theme {
   DARK = 'dark',
 }
 
-export type ThemeContextType = {
+export interface ThemeContextType {
   theme: Theme;
   setTheme: (theme: Theme) => void;
 }

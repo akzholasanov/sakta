@@ -1,5 +1,6 @@
 import { Carousel } from 'antd';
 import { Video } from 'shared/types';
+
 import styles from './slider.module.scss';
 
 interface SliderProps {

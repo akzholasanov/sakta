@@ -1,4 +1,5 @@
 import { Input } from 'antd';
+
 import styles from './search-bar.module.scss';
 
 interface SearchBarProps {

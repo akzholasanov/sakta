@@ -1,7 +1,8 @@
 import { useQuery } from '@tanstack/react-query';
 import { CollectionResponse } from 'shared/types';
-import { COLLECTIONS } from '../key';
+
 import { CollectionsApi } from '../api';
+import { COLLECTIONS } from '../key';
 
 const DEFAULT_COLLECTION_RESPONSE: CollectionResponse = {
   collections: [],

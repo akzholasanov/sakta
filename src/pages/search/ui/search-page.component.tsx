@@ -1,9 +1,9 @@
+import { useGetSearchPhotos } from 'entities/photo/queries';
 import { useEffect } from 'react';
 import { useParams, useSearchParams } from 'react-router-dom';
-
 import { Loader } from 'shared/ui/loader';
 import { PhotoList } from 'widgets/photo-list';
-import { useGetSearchPhotos } from 'entities/photo/queries';
+
 import styles from './search-page.module.scss';
 
 export const SearchPage = () => {
@@ -13,7 +13,7 @@ export const SearchPage = () => {
 
   useEffect(() => {
     if (query) {
-      const color = searchParams.get('color') || '';
+      const color = searchParams.get('color') ?? '';
       const page = Number(searchParams.get('page')) || 1;
       const perPage = Number(searchParams.get('perPage')) || 10;
 

@@ -1,8 +1,8 @@
 import { Masonry } from 'masonic';
-import { Loader } from 'shared/ui/loader';
-import { PhotoCardType } from 'shared/types';
-import { PhotoCard } from 'shared/ui/photo-card';
 import { useDeviceType, useInfiniteListRef } from 'shared/hooks';
+import { PhotoCardType } from 'shared/types';
+import { Loader } from 'shared/ui/loader';
+import { PhotoCard } from 'shared/ui/photo-card';
 
 import styles from './photo-list.module.scss';
 

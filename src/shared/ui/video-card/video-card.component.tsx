@@ -1,6 +1,5 @@
-import React from 'react';
 import { VideoCollection } from 'shared/types';
-import { generateGridSpan } from 'shared/helpers';
+
 import styles from './video-card.module.scss';
 
 interface VideoCardProps {
@@ -8,8 +7,6 @@ interface VideoCardProps {
 }
 
 export const VideoCard = ({ videoData }: VideoCardProps) => {
-  const span = generateGridSpan(20, 25);
-
   const videoFile = videoData.video_files?.[0];
 
   if (!videoFile) {
@@ -21,10 +18,7 @@ export const VideoCard = ({ videoData }: VideoCardProps) => {
   }
 
   return (
-    <div
-      className={styles.card}
-      style={{ '--card-span': span } as React.CSSProperties}
-    >
+    <div className={styles.card}>
       <div className={styles.card_video}>
         <video
           src={videoFile.link}

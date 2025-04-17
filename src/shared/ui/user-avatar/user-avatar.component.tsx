@@ -1,5 +1,5 @@
-import { Avatar, Space } from 'antd';
 import { UserOutlined } from '@ant-design/icons';
+import { Avatar, Space } from 'antd';
 
 interface UserAvatarProps {
   size: number;

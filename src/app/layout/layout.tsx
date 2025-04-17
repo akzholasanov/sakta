@@ -1,6 +1,7 @@
 import { Layout } from 'antd';
 import { Outlet, useLocation } from 'react-router-dom';
 import { Header } from 'widgets/header';
+
 import styles from './layout.module.scss';
 
 export const MainLayout = () => {

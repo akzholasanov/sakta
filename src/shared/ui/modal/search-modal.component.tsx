@@ -1,13 +1,17 @@
-import { Modal } from "antd";
+import { Modal } from 'antd';
 
 interface MobileModalProps {
-    open: boolean;
-    title: string;
-    content: string;
-    handleOk: () => void;
-    handleCancel: () => void;
+  open: boolean;
+  title: string;
+  content: string;
+  handleOk: () => void;
+  handleCancel: () => void;
 }
-export const SearchModal = ({ open, handleOk, handleCancel }: MobileModalProps) => {
+export const SearchModal = ({
+  open,
+  handleOk,
+  handleCancel,
+}: MobileModalProps) => {
   return (
     <Modal
       title="Basic Modal"

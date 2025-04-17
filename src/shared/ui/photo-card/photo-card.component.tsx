@@ -1,5 +1,6 @@
-import { PhotoCardType } from 'shared/types';
 import { useNavigate } from 'react-router-dom';
+import { PhotoCardType } from 'shared/types';
+
 import styles from './photo-card.module.scss';
 
 interface PhotoCardProps {
