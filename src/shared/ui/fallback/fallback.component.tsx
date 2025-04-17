@@ -1,4 +1,5 @@
 import { useNavigate } from 'react-router-dom';
+
 import styles from './fallback.module.scss';
 
 export const Fallback = () => {

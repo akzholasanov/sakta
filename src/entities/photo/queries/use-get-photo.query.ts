@@ -1,7 +1,8 @@
 import { useQuery } from '@tanstack/react-query';
 import { PhotoCardType } from 'shared/types';
-import { PHOTO } from '../keys';
+
 import { PhotoApi } from '../api';
+import { PHOTO } from '../keys';
 
 export const useGetPhoto = (id: number) => {
   const {

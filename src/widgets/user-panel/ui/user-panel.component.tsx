@@ -1,4 +1,5 @@
-import { Popover, Avatar } from 'antd';
+import { Avatar, Popover } from 'antd';
+
 import styles from './user-panel.module.scss';
 
 export const UserPanel = () => {

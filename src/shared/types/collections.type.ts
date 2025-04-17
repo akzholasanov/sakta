@@ -1,7 +1,7 @@
 import { PhotoCardType } from './photo-card.type';
 import { VideoFile, VideoPicture, VideoUser } from './video.type';
 
-export type CollectionType = {
+export interface CollectionType {
   id: string;
   title: string;
   description: string;
@@ -9,18 +9,18 @@ export type CollectionType = {
   media_count: number;
   photos_count: number;
   videos_count: number;
-};
+}
 
-export type CollectionResponse = {
+export interface CollectionResponse {
   collections: CollectionType[];
   page: number;
   per_page: number;
   total_results: number;
   next_page: string;
   prev_page: string;
-};
+}
 
-export type VideoCollection = {
+export interface VideoCollection {
   avg_color: string;
   duration: number;
   height: number;
@@ -33,13 +33,13 @@ export type VideoCollection = {
   video_files: VideoFile[];
   video_pictures: VideoPicture[];
   width: number;
-};
+}
 
 export type Media =
   | (PhotoCardType & { type: 'Photo' })
   | (VideoCollection & { type: 'Video' });
 
-export type CollectionDetailResponse = {
+export interface CollectionDetailResponse {
   id: string;
   media: Media[];
   page: number;
@@ -47,4 +47,4 @@ export type CollectionDetailResponse = {
   total_results: number;
   next_page: string | null;
   prev_page: string | null;
-};
+}

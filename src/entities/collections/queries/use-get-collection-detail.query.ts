@@ -1,5 +1,6 @@
 import { useQuery } from '@tanstack/react-query';
 import { CollectionDetailResponse } from 'shared/types';
+
 import { CollectionsApi } from '../api';
 import { COLLECTION_DETAIL } from '../key';
 

@@ -1,5 +1,6 @@
-import React from 'react';
 import clsx from 'clsx';
+import React from 'react';
+
 import styles from './button.module.scss';
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
@@ -23,7 +24,7 @@ export const Button: React.FC<ButtonProps> = ({
       type={type}
       className={clsx(styles.button, className, {
         [styles.loading]: isLoading,
-        [styles.disabled]: disabled || isLoading,
+        [styles.disabled]: disabled ?? isLoading,
       })}
       disabled={disabled || isLoading}
       onClick={onClick}

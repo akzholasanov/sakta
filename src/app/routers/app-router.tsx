@@ -1,8 +1,8 @@
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { MainLayout } from 'app/layout';
+import { DetailPage } from 'pages/detail';
 import { HomePage } from 'pages/home';
 import { SearchPage } from 'pages/search';
-import { DetailPage } from 'pages/detail';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
 const routers = createBrowserRouter([
   {

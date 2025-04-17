@@ -1,9 +1,10 @@
 import { useGetPhoto } from 'entities/photo/queries';
-import { useNavigate, useParams } from 'react-router-dom';
-import { IoIosArrowBack } from 'react-icons/io';
-import { Loader } from 'shared/ui/loader';
-import styles from './detail-page.module.scss';
 import { useState } from 'react';
+import { IoIosArrowBack } from 'react-icons/io';
+import { useNavigate, useParams } from 'react-router-dom';
+import { Loader } from 'shared/ui/loader';
+
+import styles from './detail-page.module.scss';
 
 export const DetailPage = () => {
   const [showNotification, setShowNotification] = useState(false);
