@@ -1,6 +1,4 @@
-import React from 'react';
 import { PhotoCardType } from 'shared/types';
-import { generateGridSpan } from 'shared/helpers';
 import { useNavigate } from 'react-router-dom';
 import styles from './photo-card.module.scss';
 
@@ -9,7 +7,6 @@ interface PhotoCardProps {
 }
 
 export const PhotoCard = ({ photoData }: PhotoCardProps) => {
-  const span = generateGridSpan(10, 20);
   const navigate = useNavigate();
 
   const handleNavigateToDetail = () => {
@@ -17,11 +14,7 @@ export const PhotoCard = ({ photoData }: PhotoCardProps) => {
   };
 
   return (
-    <div
-      className={styles.card}
-      onClick={handleNavigateToDetail}
-      style={{ '--card-span': span } as React.CSSProperties}
-    >
+    <div className={styles.card} onClick={handleNavigateToDetail}>
       {/* <button className={styles.card_save}>Save</button> */}
       <div className={styles.card_image}>
         <img src={photoData.src.medium} alt={photoData.alt} loading="lazy" />

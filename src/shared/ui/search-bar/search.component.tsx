@@ -65,7 +65,9 @@ export const Search = ({
             <button
               key={color}
               onClick={() => setColor(color)}
-              className={clsx({ [styles.selected_color]: selectedColor === color })}
+              className={clsx({
+                [styles.selected_color]: selectedColor === color,
+              })}
             >
               <small style={{ backgroundColor: color }}></small>
               {color}
