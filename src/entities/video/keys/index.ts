@@ -1,1 +1,1 @@
-export { VIDEOS } from './keys';
+export { VIDEOS, VIDEO } from './keys';

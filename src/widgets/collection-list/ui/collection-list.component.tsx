@@ -1,9 +1,11 @@
 import clsx from 'clsx';
-import { useGetCollectionDetail } from 'entities/collections/queries';
 import { useEffect, useState } from 'react';
+import { Masonry } from 'masonic';
+import { useDeviceType } from 'shared/hooks';
 import { CollectionType } from 'shared/types';
 import { PhotoCard } from 'shared/ui/photo-card';
 import { VideoCard } from 'shared/ui/video-card';
+import { useGetCollectionDetail } from 'entities/collections/queries';
 
 import styles from './collection-list.module.scss';
 
@@ -18,6 +20,7 @@ export const CollectionList = ({ collections }: CollectionListProps) => {
   const { data: collection } = useGetCollectionDetail(
     selectedCollectionId || '',
   );
+  const { isMobile } = useDeviceType();
 
   useEffect(() => {
     if (collections.length > 0) {
@@ -46,13 +49,20 @@ export const CollectionList = ({ collections }: CollectionListProps) => {
       <div className={styles.collection_detail}>
         <p className={styles.collection_title}>Elements</p>
         <div className={styles.collection_media}>
-          {collection?.media.map(item =>
-            item.type === 'Photo' ? (
-              <PhotoCard key={item.id} photoData={item} />
-            ) : (
-              <VideoCard key={item.id} videoData={item} />
-            ),
-          )}
+          <Masonry
+            key={selectedCollectionId || 'default'}
+            items={collection?.media ?? []}
+            render={({ data }) =>
+              data.type === 'Photo' ? (
+                <PhotoCard photoData={data} />
+              ) : (
+                <VideoCard videoData={data} />
+              )
+            }
+            columnGutter={isMobile ? 24 : 42}
+            rowGutter={0}
+            columnCount={isMobile ? 2 : undefined}
+          />
         </div>
       </div>
     </div>

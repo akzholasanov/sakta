@@ -1,7 +1,7 @@
 import { MainLayout } from 'app/layout';
-import { DetailPage } from 'pages/detail';
 import { HomePage } from 'pages/home';
 import { SearchPage } from 'pages/search';
+import { DetailPage, VideoDetailPage } from 'pages/detail';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
 const routers = createBrowserRouter([
@@ -16,6 +16,10 @@ const routers = createBrowserRouter([
       {
         path: ':type/:id',
         element: <DetailPage />,
+      },
+      {
+        path: 'videos/:id',
+        element: <VideoDetailPage />,
       },
       {
         path: 'search/:query',

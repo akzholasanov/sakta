@@ -1,4 +1,5 @@
 import { VideoCollection } from 'shared/types';
+import { useNavigate } from 'react-router-dom';
 
 import styles from './video-card.module.scss';
 
@@ -8,6 +9,11 @@ interface VideoCardProps {
 
 export const VideoCard = ({ videoData }: VideoCardProps) => {
   const videoFile = videoData.video_files?.[0];
+  const navigate = useNavigate();
+
+  const handleNavigateToDetail = () => {
+    navigate(`/videos/${videoData.id}`);
+  };
 
   if (!videoFile) {
     return (
@@ -18,7 +24,7 @@ export const VideoCard = ({ videoData }: VideoCardProps) => {
   }
 
   return (
-    <div className={styles.card}>
+    <div className={styles.card} onClick={handleNavigateToDetail}>
       <div className={styles.card_video}>
         <video
           src={videoFile.link}

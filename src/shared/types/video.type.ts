@@ -30,6 +30,7 @@ export interface Video {
   video_files: VideoFile[];
   video_pictures: VideoPicture[];
 }
+
 export interface VideoResponse {
   page: number;
   per_page: number;
