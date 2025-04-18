@@ -19,7 +19,7 @@ export const useGetVideos = () => {
     error,
   } = useQuery<VideoResponse>({
     queryKey: VIDEOS,
-    queryFn: VideoApi.getVideo,
+    queryFn: VideoApi.getVideos,
   });
 
   return { data, loading, error };

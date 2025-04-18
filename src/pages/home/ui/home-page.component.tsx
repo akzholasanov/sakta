@@ -1,9 +1,11 @@
-import { useGetCollections } from 'entities/collections/queries';
-import { useGetPhotos } from 'entities/photo/queries';
-import { useCallback, useState } from 'react';
-import { CollectionList } from 'widgets/collection-list';
-import { PhotoList } from 'widgets/photo-list';
+import { useCallback } from 'react';
 import { Tabs } from 'widgets/tabs';
+import { IoIosArrowUp } from 'react-icons/io';
+import { PhotoList } from 'widgets/photo-list';
+import { useSearchParams } from 'react-router-dom';
+import { useGetPhotos } from 'entities/photo/queries';
+import { CollectionList } from 'widgets/collection-list';
+import { useGetCollections } from 'entities/collections/queries';
 
 import styles from './home-page.module.scss';
 
@@ -16,10 +18,11 @@ export const HomePage = () => {
       page.photos.map(photo => ({ ...photo, _pageIndex: pageIndex })),
     ) ?? [];
 
-  const [activeTab, setActiveTab] = useState('for-you');
-
+  const [searchParams, setSearchParams] = useSearchParams();
+  const tabParam = searchParams.get('tab');
+  const activeTab = tabParam === 'collections' ? 'collections' : 'for-you'; // default to 'for-you'
   const handleChangeTab = useCallback((tabId: string) => {
-    setActiveTab(tabId);
+    setSearchParams({ tab: tabId });
   }, []);
 
   return (
@@ -37,6 +40,12 @@ export const HomePage = () => {
       ) : (
         <CollectionList collections={collections?.collections} />
       )}
+      <button
+        className={styles.back_to_top}
+        onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+      >
+        <IoIosArrowUp size={16} color="#727170" />
+      </button>
     </section>
   );
 };
